@@ -1,15 +1,37 @@
 package euler
 
-func reverse(str string) string {
+import "math"
+
+// Returns a reversed string
+func Reverse(str string) string {
 	length := len(str)
-	runes := []rune(str)
-	for i := 0; i < length/2; i++ {
-		runes[length-1-i], runes[i] = runes[i], runes[length-1-i]
+	resultRunes := make([]rune, length)
+	for i, runeValue := range str {
+		resultRunes[length-1-i] = runeValue
 	}
-	return string(runes)
+
+	return string(resultRunes)
 }
 
-func isPalindrome(str string) bool {
-	result := str == reverse(str)
+func IsPalindrome(str string) bool {
+	result := str == Reverse(str)
 	return result
+}
+
+func IsPrime(num int) bool {
+	if num < 0 {
+		panic("num should be non-negative")
+	} else if num == 1 {
+		return false
+	} else if num == 2 {
+		return true
+	}
+	upperLimit := int(math.Ceil(math.Sqrt(float64(num))))
+
+	for i := 2; i <= upperLimit; i++ {
+		if num%i == 0 {
+			return false
+		}
+	}
+	return true
 }

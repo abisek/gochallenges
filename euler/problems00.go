@@ -61,7 +61,7 @@ func problem004() int {
 	for i := 999; i > 100; i-- {
 		for j := 999; j > 100; j-- {
 			product := i * j
-			if isPalindrome(strconv.Itoa(product)) {
+			if IsPalindrome(strconv.Itoa(product)) {
 				if product > max {
 					maxSet = true
 					max = product
@@ -91,4 +91,35 @@ outer:
 		return i
 	}
 	panic("Should have found a solution by now")
+}
+
+// Sum square difference
+func problem006() int {
+	first, last := 1, 100
+	sumOfSquares, sum := 0, 0
+
+	for i := first; i <= last; i++ {
+		sum += i
+		sumOfSquares += i * i
+	}
+
+	squaresOfSum := sum * sum
+
+	return squaresOfSum - sumOfSquares
+}
+
+// 10001st prime
+func problem007() int {
+	num := 1
+	primeCount := 0
+	for {
+		if IsPrime(num) {
+			primeCount++
+			if primeCount == 10001 {
+				return num
+			}
+		}
+		num++
+	}
+	panic("Couldn't find a solution")
 }

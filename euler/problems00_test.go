@@ -35,3 +35,19 @@ func TestProblem005(t *testing.T) {
 		t.Error(expected, got)
 	}
 }
+
+func TestProblem006(t *testing.T) {
+	expected := 25164150
+	got := problem006()
+	if expected != got {
+		t.Error(expected, got)
+	}
+}
+
+func TestProblem007(t *testing.T) {
+	expected := 104743
+	got := problem007()
+	if expected != got {
+		t.Error(expected, got)
+	}
+}
